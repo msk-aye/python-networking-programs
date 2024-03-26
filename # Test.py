@@ -1,5 +1,5 @@
 # Test
 import time
-pp = "%s %s Hello nigger"
+pp = "%s %s Hello hello"
 
-print(pp % ((time.ctime(time.time()), "nigger")))
+print(pp % ((time.ctime(time.time()), "hrllo")))
