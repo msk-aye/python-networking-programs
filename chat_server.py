@@ -109,7 +109,6 @@ class ChatServer:
 
             if message == EXIT:
                 sys.stdout.write(TERMINATED_BY_SERVER)
-                self.conn.send(TERMINATED_BY_SERVER.encode())
                 self.conn.close()
                 sys.stdout.flush()
                 os._exit(0)
