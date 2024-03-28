@@ -172,7 +172,7 @@ class RawClientTCP:
         ip_daddr = socket.inet_aton(self.dest_ip)
 
         place_holder = pack('!HHLLBBH', self.source_port, self.dest_port,
-                       tcp_seq, tcp_ack_seq, (tcp_doff << 4)+ 0,
+                       tcp_seq, tcp_ack_seq, (tcp_doff << 4) + 0,
                        (tcp_fin << 0) + (tcp_syn << 1) +
                        (tcp_rst << 2) + (tcp_psh << 3) +
                        (tcp_ack << 4) + (tcp_urg << 5), tcp_window) \
@@ -187,7 +187,7 @@ class RawClientTCP:
                                             + self.msg)
         
         self.tcp_header = pack('!HHLLBBH', self.source_port, self.dest_port,
-                       tcp_seq, tcp_ack_seq, (tcp_doff << 4)+ 0,
+                       tcp_seq, tcp_ack_seq, (tcp_doff << 4) + 0,
                        (tcp_fin << 0) + (tcp_syn << 1) +
                        (tcp_rst << 2) + (tcp_psh << 3) +
                        (tcp_ack << 4) + (tcp_urg << 5), tcp_window) \

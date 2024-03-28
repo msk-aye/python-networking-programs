@@ -21,8 +21,7 @@ class Testcases:
     def __init__(self):
         # use \n to represent the action of hitting enter
         self.echo_client_inputs = ["Test 1\n", "123\n", "Hello\nWorld\n"]
-        self.echo_client_expected_outputs = [
-            "[Server] Test 1", "[Server] 123", "[Server] Hello", "[Server] World"]
+        self.echo_client_expected_outputs = ["[Server] Test 1", "[Server] 123", "[Server] Hello", "[Server] World"]
 
         self.number_client_inputs = ["0\n", "1\n", "2\n", "3\n", "4\n", "5\n", "6\n", "7\n", "8\n", "9\n",
                                      "10\n", "Test\n", "123\n"]
@@ -30,6 +29,7 @@ class Testcases:
                                                "[Server] four", "[Server] five", "[Server] six", "[Server] seven",
                                                "[Server] eight", "[Server] nine", "[Server] Invalid message",
                                                "[Server] Invalid message", "[Server] Invalid message"]
+
 
         self.chat_client_inputs1 = ["Hello World\n"]
         self.chat_server_inputs1 = ["Hi\n"]
@@ -41,6 +41,7 @@ class Testcases:
                                               r"\[\((\d{2}:\d{2}:\d{2})\)\] Get a connection from Alice",
                                               r"\[Alice \((\d{2}:\d{2}:\d{2})\)\] Hello World",
                                               "[Connection terminated by the client]"]
+
 
         self.chat_client_inputs2 = ["Hello I am Bob.\n", "How are you?\n"]
         self.chat_server_inputs2 = ["Hi Bob, Nice to meet you!\n", "Bye\n"]
@@ -60,8 +61,7 @@ class Testcases:
                                                 "Testtest"]
 
         self.raw_client_udp_inputs = ["Testtest\n", "123\n", "Hello\nWorld\n"]
-        self.raw_server_udp_expected_outputs = [
-            "Testtest", "123", "Hello", "World"]
+        self.raw_server_udp_expected_outputs = ["Testtest", "123", "Hello", "World"]
 
         # place to store client and server outputs
         self.client_outputs = None
@@ -152,12 +152,10 @@ class Testcases:
                 "Client outputs do not match"
 
             self.client_outputs = self.client_outputs.split("\n")
-            assert len(
-                self.client_outputs) == 4, "Incorrect number of client outputs"
+            assert len(self.client_outputs) == 4, "Incorrect number of client outputs"
             self.server_outputs = self.server_outputs.split("\n")
             print("len_server_outputs:", len(self.server_outputs))
-            assert len(
-                self.server_outputs) == 1 and self.server_outputs[0] == '', "Incorrect number of server outputs"
+            assert len(self.server_outputs) == 1 and self.server_outputs[0] == '', "Incorrect number of server outputs"
 
         except Exception as e:
             print("Echo test failed:", e)
@@ -175,11 +173,9 @@ class Testcases:
                 "Client outputs do not match"
 
             self.client_outputs = self.client_outputs.split("\n")
-            assert len(
-                self.client_outputs) == 13, "Incorrect number of client outputs"
+            assert len(self.client_outputs) == 13, "Incorrect number of client outputs"
             self.server_outputs = self.server_outputs.split("\n")
-            assert len(
-                self.server_outputs) == 1 and self.server_outputs[0] == '', "Incorrect number of server outputs"
+            assert len(self.server_outputs) == 1 and self.server_outputs[0] == '', "Incorrect number of server outputs"
 
         except Exception as e:
             print("Number test failed:", e)
@@ -201,24 +197,17 @@ class Testcases:
             # use \n under linux machine
             server_outputs = self.server_outputs.split("\n")
 
-            assert re.match(
-                self.chat_server_expected_outputs1[0], server_outputs[0]), "Server outputs 0 do not match"
-            assert re.match(
-                self.chat_server_expected_outputs1[1], server_outputs[1]), "Server outputs 1 do not match"
-            assert re.match(
-                self.chat_server_expected_outputs1[2], server_outputs[2]), "Server outputs 2 do not match"
+            assert re.match(self.chat_server_expected_outputs1[0], server_outputs[0]), "Server outputs 0 do not match"
+            assert re.match(self.chat_server_expected_outputs1[1], server_outputs[1]), "Server outputs 1 do not match"
+            assert re.match(self.chat_server_expected_outputs1[2], server_outputs[2]), "Server outputs 2 do not match"
             assert self.chat_server_expected_outputs1[3] == server_outputs[3], "Server outputs 3 do not match"
-            assert len(
-                server_outputs) == 4, "Incorrect number of server outputs"
+            assert len(server_outputs) == 4, "Incorrect number of server outputs"
 
             client_outputs = self.client_outputs.split("\n")
-            assert re.match(
-                self.chat_client_expected_outputs1[0], client_outputs[0]), "Client output 0 does not match"
-            assert re.match(
-                self.chat_client_expected_outputs1[1], client_outputs[1]), "Client output 1 does not match"
+            assert re.match(self.chat_client_expected_outputs1[0], client_outputs[0]), "Client output 0 does not match"
+            assert re.match(self.chat_client_expected_outputs1[1], client_outputs[1]), "Client output 1 does not match"
             assert self.chat_client_expected_outputs1[2] == client_outputs[2], "Client output 2 does not match"
-            assert len(
-                client_outputs) == 3, "Incorrect number of client outputs"
+            assert len(client_outputs) == 3, "Incorrect number of client outputs"
 
         except Exception as e:
             print("Chat test 1 failed:", e)
@@ -239,28 +228,20 @@ class Testcases:
             # use \n under linux machine
             server_outputs = self.server_outputs.split("\n")
 
-            assert re.match(
-                self.chat_server_expected_outputs2[0], server_outputs[0]), "Server output 0 does not match"
-            assert re.match(
-                self.chat_server_expected_outputs2[1], server_outputs[1]), "Server output 1 does not match"
-            assert re.match(
-                self.chat_server_expected_outputs2[2], server_outputs[2]), "Server output 2 does not match"
-            assert re.match(
-                self.chat_server_expected_outputs2[3], server_outputs[3]), "Server output 3 does not match"
+            assert re.match(self.chat_server_expected_outputs2[0], server_outputs[0]), "Server output 0 does not match"
+            assert re.match(self.chat_server_expected_outputs2[1], server_outputs[1]), "Server output 1 does not match"
+            assert re.match(self.chat_server_expected_outputs2[2], server_outputs[2]), "Server output 2 does not match"
+            assert re.match(self.chat_server_expected_outputs2[3], server_outputs[3]), "Server output 3 does not match"
             assert self.chat_server_expected_outputs2[4] == server_outputs[4], "Server output 4 does not match"
-            assert len(
-                server_outputs) == 5, "Incorrect number of server outputs"
+            assert len(server_outputs) == 5, "Incorrect number of server outputs"
 
             client_outputs = self.client_outputs.split("\n")
-            assert re.match(
-                self.chat_client_expected_outputs2[0], client_outputs[0]), "Client output 0 does not match"
-            assert re.match(
-                self.chat_client_expected_outputs2[1], client_outputs[1]), "Client output 1 does not match"
-            assert re.match(
-                self.chat_client_expected_outputs2[2], client_outputs[2]), "Client output 2 does not match"
+            assert re.match(self.chat_client_expected_outputs2[0], client_outputs[0]), "Client output 0 does not match"
+            assert re.match(self.chat_client_expected_outputs2[1], client_outputs[1]), "Client output 1 does not match"
+            assert re.match(self.chat_client_expected_outputs2[2], client_outputs[2]), "Client output 2 does not match"
             assert self.chat_client_expected_outputs2[3] == client_outputs[3], "Client output 3 does not match"
-            assert len(
-                client_outputs) == 4, "Incorrect number of client outputs"
+            assert len(client_outputs) == 4, "Incorrect number of client outputs"
+
 
         except Exception as e:
             print("Chat test 2 failed:", e)
@@ -278,8 +259,7 @@ class Testcases:
                 "Server outputs do not match"
 
             self.server_outputs = self.server_outputs.split("\n")
-            assert len(
-                self.server_outputs) == 3, "Incorrect number of server outputs"
+            assert len(self.server_outputs) == 3, "Incorrect number of server outputs"
             self.client_outputs = self.client_outputs.split("\n")
             assert len(self.client_outputs) == 1 and self.client_outputs[0] == "The chat message to send:", \
                 "Incorrect number of client outputs"
@@ -300,11 +280,9 @@ class Testcases:
                 "Server outputs do not match"
 
             self.server_outputs = self.server_outputs.split("\n")
-            assert len(
-                self.server_outputs) == 4, "Incorrect number of server outputs"
+            assert len(self.server_outputs) == 4, "Incorrect number of server outputs"
             self.client_outputs = self.client_outputs.split("\n")
-            assert len(
-                self.client_outputs) == 1 and self.client_outputs[0] == '', "Incorrect number of client outputs"
+            assert len(self.client_outputs) == 1 and self.client_outputs[0] == '', "Incorrect number of client outputs"
 
         except Exception as e:
             print("raw udp test failed:", e)
@@ -312,13 +290,15 @@ class Testcases:
             print("raw udp test passed.")
 
     def run_all_tests(self):
-        #self.test_echo_server_client()
-        #self.test_number_server_client()
+        self.test_echo_server_client()
+        self.test_number_server_client()
         self.test_chat_server_client()
-        #self.test_raw_tcp()
-        #self.test_raw_udp()
+        self.test_raw_tcp()
+        self.test_raw_udp()
 
 
 if __name__ == "__main__":
     testcases = Testcases()
     testcases.run_all_tests()
+
+
